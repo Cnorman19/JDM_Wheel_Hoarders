@@ -1,0 +1,23 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+
+
+<div class = "alert alert-dark alert-dismissible fade show"  role = "alert">
+	<STRONG> You have been logged out </STRONG> 
+
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+   	 <span aria-hidden="true">&times;</span>
+  	</button>
+
+			<div class = "border-top pt-3">
+				<small class="text-muted">
+					<a class = "ml-2" href="{% url 'login' %}"> Log In  Again </a>
+				</small>
+			</div>
+
+		</form>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,82 @@
+{% load static %} 
+<!DOCTYPE HTML>
+<!--
+	Introspect by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		
+		{% if title %}
+		<title>JDM Wheel Hoarders Blog - {{ title }}</title>
+		{% else %}
+		<title>JDM Wheel Hoarders Blog</title>
+		{% endif %}
+
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<link rel="stylesheet" href="{% static 'blog/main.css'%}" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.html" class="logo">PlaceHolder</a>
+					<nav id="nav">
+						<a href="{% url 'blog-home'%}">Home</a>
+						<a href="">Buy</a>
+						<a href="">Sell</a>
+						<a href="{% url 'blog-home'%}">Blog</a>
+						{% if user.is_authenticated %}
+						<a href="{% url 'profile'%}">My Profile</a>
+						<a href="{% url 'logout' %}">Log Out</a>
+						{% else %}
+						<a href="{% url 'login' %}">Log In</a>
+						<a href="{% url 'register' %}">Sign Up</a>
+						{% endif %}
+
+					</nav>
+				</div>
+			</header>
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+	
+
+			{% if messages %}
+
+			{% for message in messages %}
+
+			<div class = "alert alert-{{message.tags}}"> {{ message }} </div>
+
+			{% endfor %}
+
+			{% endif %}
+
+
+			{% block content %} {% endblock content %} 
+			
+
+	<!-- Footer -->
+			<section id="footer">
+				<div class="inner">
+					<header>
+						<h2>Get in Touch</h2>
+					</header>
+					<div class="copyright">
+						&copy; JDM Wheel Hoarders: <a>Developed by Cameron Norman </a>
+					</div>
+				</div>
+			</section>
+
+
+		<!-- Scripts -->
+			<script src="{% static 'blog/js/jquery.min.js' %}"></script>
+			<script src="{% static 'blog/js/skel.min.js' %}"></script>
+			<script src="{% static 'blog/js/util.js' %}"></script>
+			<script src="{% static 'blog/js/main.js' %}"></script>
+		
+
+	</body>
+</html>
