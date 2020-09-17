@@ -81,11 +81,21 @@
 
 	.container.\32 5\25 {
 		width: 20em;
-	}
+	} 
 
 	.container {
 		width: 80em;
 	}
+	.margin-top{
+
+	position: fixed;
+    margin-top: 20px;
+    margin-left: 45%;
+    background-color: #990000;
+    border-radius: 8px;
+    color: white;
+	}
+
 
 
 	/* Colors */
@@ -209,6 +219,13 @@
 
 		.container.\37 5\25 {
 			width: 67.5%;
+		}
+
+		.cambutton{
+
+			background-color: #990000;
+    		border-radius: 8px;
+    		color: white;
 		}
 
 		.container.\35 0\25 {

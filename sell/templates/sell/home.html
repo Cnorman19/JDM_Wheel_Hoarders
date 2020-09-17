@@ -1,6 +1,29 @@
 {% extends "blog/base.html" %}
 {% block content %}
 
-	<h1> Sell Page </h1>
+
+	{% for sell in sells %}
+  
+
+      <div class= "form-set">
+  		  <article class="media content-section">
+            <img class="rounded-circle article-img" src="{{ sell.author.profile.image.url }}">
+            <div class="media-body">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ sell.author }}</a>
+                <strong class="text-muted" style="margin-right: 20px">Size : {{ sell.diameter }} x {{ sell.width }}</strong>
+                <strong class="text-muted" style="margin-right: 20px">Bolt Pattern: </strong>
+                <small class="text-muted">{{ sell.date_posted|date:"F d, Y" }}</small>
+
+              </div>
+              <h2><a class="article-title" href="{% url 'sell-detail' sell.id %}">{{ sell.name }}</a></h2>
+              <p class="article-content">{{ sell.description }}</p>
+            </div>
+          </article>
+  	 </div>
+
+  
+	{% endfor %}
+  
 
 {% endblock content %}

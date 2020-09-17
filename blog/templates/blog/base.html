@@ -24,13 +24,13 @@
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="index.html" class="logo">PlaceHolder</a>
+					<a href="{% url 'blog-about' %}" class="logo">PlaceHolder</a>
 					<nav id="nav">
-						<a href="{% url 'blog-home'%}">Home</a>
-						<a href="">Buy</a>
-						<a href="">Sell</a>
+						<a href="{% url 'blog-about' %}">Home</a>
 						<a href="{% url 'blog-home'%}">Blog</a>
+						<a href="{% url 'sell-home' %}">Buy</a>
 						{% if user.is_authenticated %}
+						<a href="{% url 'sell-create'%}">Sell</a>
 						<a href="{% url 'profile'%}">My Profile</a>
 						<a href="{% url 'logout' %}">Log Out</a>
 						{% else %}

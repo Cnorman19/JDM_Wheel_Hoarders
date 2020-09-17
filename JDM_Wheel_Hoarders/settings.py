@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'sell.apps.SellConfig',
     'blog.apps.BlogConfig',
     'crispy_forms',
+    'django_cleanup.apps.CleanupConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
