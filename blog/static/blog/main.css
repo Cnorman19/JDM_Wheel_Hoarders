@@ -104,6 +104,20 @@
 
 		color: #990000;
 	}
+	.try {
+
+		background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/31/1990_240sx_Quarter_View.JPG');
+		background-size: cover;
+		background-position: center center;
+		border-radius: 12px;
+		margin: 10px;
+	}
+
+	.profile-info {
+		border-radius: 12px;
+		background-color:rgba(0, 0, 0, 0.5);
+		padding-right: 1px;
+	}
 
 	@media screen and (max-width: 1680px) {
 
@@ -243,16 +257,18 @@
 	}
 
 	.article-title {
-  		color: #444444;
+  		color: white;
 	}
 
 	a.article-title:hover {
-	  color: #428bca;
+	  color: #990000;
 	  text-decoration: none;
 	}
 
 	.article-content {
 	  white-space: pre-line;
+	  color:black;
+	  font-weight: bold;
 	}
 
 	.article-img {
@@ -278,12 +294,19 @@
 	  vertical-align: middle;
 	}
 
+	.bg-text{
+
+		background-color: #bfbfbf;
+		padding-left: 5px;
+		border-radius: 10px;
+	}
 
 	.content-section {
 		  background: #ffffff;
+		  background-color: #1c1c1c;
 		  padding: 10px 20px;
-		  border: 1px solid #dddddd;
-		  border-radius: 3px;
+		  /* border: 6px solid #990000; */
+		  border-radius: 22px;
 		  margin-bottom: 20px;
 	}
 
@@ -2022,7 +2045,7 @@
 	input[type="button"],
 	button,
 	.button {
-		background-color: #5a5a5a;
+		background-color: #1c1c1c;
 		color: #ffffff !important;
 	}
 
@@ -3835,6 +3858,12 @@
 
 /* Footer */
 
+	.center{
+		margin: auto;
+	  	width: 50%;
+	  	padding: 10px;
+	}
+
 	#footer {
 		background-color: #990000;
 		color: #f2a3a5;
@@ -4027,7 +4056,7 @@
 		#footer .copyright {
 			font-size: 0.9em;
 			margin: 0 0 2em 0;
-			padding: 0;
+			padding: -15;
 		}
 
 			#footer .copyright a {

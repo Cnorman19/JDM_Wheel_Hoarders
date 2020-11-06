@@ -24,7 +24,7 @@ class SellDetailView(DetailView):
 
 class SellCreateView(LoginRequiredMixin, CreateView):
 	model = Sell
-	fields = ['name' , 'diameter' , 'width' , 'offset' , 'description']
+	fields = ['name' , 'diameter' , 'width' , 'offset' , 'bolt_pattern', 'description']
 
 	def form_valid(self, form):
 		form.instance.author = self.request.user

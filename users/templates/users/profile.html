@@ -1,14 +1,14 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
+{% load friendshiptags %}
 {% block content %}
 
 <div class = "form-set"> 
 	<div class = "content-section">
-		<div class = "media">
+		<div class = "media try">
 	        	<img class="rounded-circle account-img" src="{{ user.profile.image.url }}" width="850" height="850">
 	        <div class="media-body">
-		          <h2 class="account-heading">{{ user.username }}</h2>
-		          <p class="text-secondary">{{ user.email }}</p>
+		          <h2 class="account-heading profile-info">{{ user.username }}</h2>
 	        </div>
     	</div>
     </div>
@@ -22,6 +22,10 @@
 						{{ p_form|crispy}}
 					<div class = "form-group">
 						<button class= "submit" type="submit"> Update </button>
+					</div>
+
+					<div class = "friends">
+						{% friends request.user %}
 					</div>
 
 					<div class = "border-top pt-3">

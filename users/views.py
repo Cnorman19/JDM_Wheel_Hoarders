@@ -1,8 +1,10 @@
 from django.shortcuts import render , redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.contrib.auth.models import User
 from .forms import UserRegisterForm , UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
+from friendship.models import Friend, Follow, Block , FriendshipRequest
 
 def register(request):
 	if request.method == 'POST':
@@ -43,3 +45,23 @@ def profile(request):
 	}
 	
 	return render(request, 'users/profile.html', context)
+
+@login_required
+def sendFriendRequest(request):
+	
+	if request.method == 'GET':
+		other_user = User.objects.get(pk=1)
+		Friend.objects.add_friend(
+	    request.user,                               # The sender
+	    other_user,                                 # The recipient
+	    message='Hi! I would like to add you')      # This message is optional
+
+@login_required
+def acceptFriendRequest():
+	friend_request = FriendshipRequest.objects.get(to_user=1)
+	friend_request.accept()
+
+@login_required
+def declineFriendRequest():
+	friend_request = FriendshipRequest.objects.get(to_user=1)
+	friend_request.reject()

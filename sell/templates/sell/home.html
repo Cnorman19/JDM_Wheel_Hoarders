@@ -12,18 +12,40 @@
               <div class="article-metadata">
                 <a class="mr-2" href="#">{{ sell.author }}</a>
                 <strong class="text-muted" style="margin-right: 20px">Size : {{ sell.diameter }} x {{ sell.width }}</strong>
-                <strong class="text-muted" style="margin-right: 20px">Bolt Pattern: </strong>
+                <strong class="text-muted" style="margin-right: 20px">Bolt Pattern: {{ sell.bolt_pattern }} </strong>
                 <small class="text-muted">{{ sell.date_posted|date:"F d, Y" }}</small>
 
               </div>
               <h2><a class="article-title" href="{% url 'sell-detail' sell.id %}">{{ sell.name }}</a></h2>
-              <p class="article-content">{{ sell.description }}</p>
+              <p class="article-content bg-text">{{ sell.description }}</p>
             </div>
           </article>
   	 </div>
 
   
 	{% endfor %}
+
+  {%  if is_paginated %}
+
+    {%  if page_obj.has_previous %}
+    <a class = "button" href="?page=1"> First </a>
+    <a class = "button" href="?page={{ page_obj.previous_page_number }}"> Previous </a>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+      {% if page_obj.number == num %}
+        <a class = "button" href="?page={{num}}">{{num}} </a>
+      {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3'%}
+        <a class = "button" href="?page={{num}}">{{num}} </a>
+      {% endif %}
+    {% endfor %}
+
+    {%  if page_obj.has_next %}
+    <a class = "button" href="?page={{ page_obj.next_page_number }}"> Next </a>
+    <a class = "button" href="?page={{ page_obj.paginator.num_pages }}"> Last </a>
+    {% endif %}
+
+  {% endif %}
   
 
 {% endblock content %}
